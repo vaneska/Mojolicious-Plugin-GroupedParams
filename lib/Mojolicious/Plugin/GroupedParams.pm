@@ -20,9 +20,10 @@ sub register {
                 my $params = $self->req->params->to_hash;
 
                 for my $key ( keys %$params ) {
-                   my ($group, $name) = $key =~ /^([^.]+)\.(.+)$/;
-                   $groups->{$group} ||= {};
-                   $groups->{$group}{$name} = $params->{$key};            
+                   if ( my ($group, $name) = $key =~ /^([^.]+)\.(.+)$/ ) {
+                       $groups->{$group} ||= {};
+                       $groups->{$group}{$name} = $params->{$key};
+                   }
                 }
 
             } 
