@@ -1,5 +1,9 @@
 Revision history for Mojolicious-Plugin-GroupedParams
 
+0.02    2012-01-20
+        Fixed warnings ( koorchik )
+        compatibility with Mojolicious 2.*
+
 0.01    2010-12-09 20:31
         First version.
 

@@ -5,12 +5,12 @@ use strict;
 
 use base 'Mojolicious::Plugin';
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub register {
     my ( $self, $app ) = @_;
 
-    $app->renderer->helper({
+    $app->helper(
         grouped_params => sub {
             my ( $self, $group ) = @_;
             my $groups = {};
@@ -33,7 +33,7 @@ sub register {
 
             $group ? $groups->{$group} || {} : $groups;
         }
-    });
+    );
 }
 
 1;
