@@ -1,9 +1,11 @@
 Revision history for Mojolicious-Plugin-GroupedParams
 
-0.02    2012-01-20
+0.03    2012-01-20
         Fixed warnings ( koorchik )
-        compatibility with Mojolicious 2.*
 
-0.01    2010-12-09 20:31
+0.02    2011-02-19
+        Changed depricated renderer->helper to app->helper
+
+0.01    2010-12-09
         First version.
 

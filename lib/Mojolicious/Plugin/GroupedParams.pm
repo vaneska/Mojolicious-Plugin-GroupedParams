@@ -5,7 +5,7 @@ use strict;
 
 use base 'Mojolicious::Plugin';
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub register {
     my ( $self, $app ) = @_;
