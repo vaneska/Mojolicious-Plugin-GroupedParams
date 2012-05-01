@@ -10,8 +10,9 @@ our $VERSION = '0.04';
 sub register {
     my ( $self, $app, $conf ) = @_;
 
-    $conf->{delimiter} //= '.';
-    my $key_split_re = qr/^([^.]+)\Q$conf->{delimiter}\E(.+)$/;
+    my $dms = $conf->{delimiters} || ['.'];
+    my $dms_re = join( '|', map { quotemeta($_) } @$dms );
+    my $key_split_re = qr/^([^.]+)(?:$dms_re)(.+)$/;
 
     $app->helper(
         grouped_params => sub {
@@ -73,11 +74,11 @@ Version 0.04
 
 =head1 CONFIG
 
-=head2 delimiter
+=head2 delimiters
 
-Set a delimiter to split parameters names. Default is '.'
+Set delimiters to split parameters names. Default is [ "." ]
 
-    $self->plugin( 'grouped_params', {delimiter => "-" } )
+    $self->plugin( 'grouped_params', {delimiter => [ "-", "."] } )
 
 =head1 FUNCTIONS 
 
