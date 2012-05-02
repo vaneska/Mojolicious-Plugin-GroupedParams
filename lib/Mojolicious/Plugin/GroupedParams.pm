@@ -12,7 +12,7 @@ sub register {
 
     my $dms = $conf->{delimiters} || ['.'];
     my $dms_re = join( '|', map { quotemeta($_) } @$dms );
-    my $key_split_re = qr/^([^.]+)(?:$dms_re)(.+)$/;
+    my $key_split_re = qr/^(.+)(?:$dms_re)(.+)$/;
 
     $app->helper(
         grouped_params => sub {
