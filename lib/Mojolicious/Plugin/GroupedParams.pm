@@ -12,7 +12,7 @@ sub register {
 
     my $dms = $conf->{delimiters} || ['.'];
     my $dms_re = join( '|', map { quotemeta($_) } @$dms );
-    my $key_split_re = qr/^(.+)(?:$dms_re)(.+)$/;
+    my $key_split_re = qr/^(.+?)(?:$dms_re)(.+)$/;
 
     $app->helper(
         grouped_params => sub {
@@ -30,8 +30,8 @@ sub register {
                    }
                 }
 
-            } 
-            else { 
+            }
+            else {
                 $groups = $self->stash('grouped_params');
             }
 
@@ -64,13 +64,13 @@ Version 0.04
         my $new_article = $self->grouped_params('article');
 
         $self->db->resultset('Article')->create($new_article);
-        
+
     };
 
     # In template
     <input name="article.name" value="<%= grouped_params('article')->{name} %>" />
     <textarea name="article.text"><%= grouped_params('article')->{text} %></textarea>
-    
+
 
 =head1 CONFIG
 
@@ -80,7 +80,7 @@ Set delimiters to split parameters names. Default is [ "." ]
 
     $self->plugin( 'grouped_params', {delimiter => [ "-", "."] } )
 
-=head1 FUNCTIONS 
+=head1 FUNCTIONS
 
 =head2 register
 
@@ -88,7 +88,7 @@ Register plugin
 
 =head2 grouped_params
 
-This helper groups params with name like <group>.<name> 
+This helper groups params with name like <group>.<name>
 and put grouped params into stash variable "grouped_params".
 
 =head1 AUTHOR
