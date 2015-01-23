@@ -18,7 +18,7 @@ get '/test' => sub {
     my ( $self ) = @_;
 
     my $p = $self->grouped_params('test');
-    $self->render_text("$p->{key1}, $p->{key2}");    
+    $self->render( text => "$p->{key1}, $p->{key2}" );    
 
 };
 
@@ -29,7 +29,7 @@ get '/test2' => sub {
     my ( $self ) = @_;
 
     my $p = $self->grouped_params('test');
-    $self->render_text("$p->{'splited.key'}");    
+    $self->render( text => "$p->{'splited.key'}" );    
 
 };
 
