@@ -13,6 +13,16 @@ my $builder = Module::Build->new(
     },
     add_to_cleanup      => [ 'Mojolicious-Plugin-GroupedParams-*' ],
     create_makefile_pl => 'traditional',
+    meta_merge => {
+        repository => {
+            type => 'git',
+            url  => 'https://github.com/vaneska/Mojolicious-Plugin-GroupedParams.git',
+            web  => 'https://github.com/vaneska/Mojolicious-Plugin-GroupedParams',
+        },
+        bugtracker => {
+            web => 'https://github.com/vaneska/Mojolicious-Plugin-GroupedParams/issues',
+        },
+    },
 );
 
 $builder->create_build_script();
